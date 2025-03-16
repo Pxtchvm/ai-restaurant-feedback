@@ -7,6 +7,7 @@
     "@heroicons/react": "^2.0.18",
     "axios": "^1.6.2",
     "chart.js": "^4.4.0",
+    "craivings": "file:..",
     "date-fns": "^2.30.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
