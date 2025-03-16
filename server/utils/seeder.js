@@ -308,14 +308,10 @@ const importData = async () => {
     // Create users with hashed passwords
     const createdUsers = [];
     for (const user of users) {
-      // Hash password
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(user.password, salt);
 
       // Create user with hashed password
       const newUser = await User.create({
         ...user,
-        password: hashedPassword,
       });
 
       createdUsers.push(newUser);
