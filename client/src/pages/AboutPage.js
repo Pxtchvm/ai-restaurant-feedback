@@ -221,7 +221,7 @@ const AboutPage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-56 bg-gray-200">
                 <img
-                  src="https://source.unsplash.com/random/300x300/?portrait,professional,1"
+                  src="https://placehold.co/300x300/?text=portrait,professional,1"
                   alt="Team Member"
                   className="w-full h-full object-cover"
                 />
@@ -235,7 +235,7 @@ const AboutPage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-56 bg-gray-200">
                 <img
-                  src="https://source.unsplash.com/random/300x300/?portrait,professional,2"
+                  src="https://placehold.co/300x300/?text=portrait,professional,2"
                   alt="Team Member"
                   className="w-full h-full object-cover"
                 />
@@ -249,7 +249,7 @@ const AboutPage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-56 bg-gray-200">
                 <img
-                  src="https://source.unsplash.com/random/300x300/?portrait,professional,3"
+                  src="https://placehold.co/300x300/?text=portrait,professional,3"
                   alt="Team Member"
                   className="w-full h-full object-cover"
                 />
@@ -263,7 +263,7 @@ const AboutPage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-56 bg-gray-200">
                 <img
-                  src="https://source.unsplash.com/random/300x300/?portrait,professional,4"
+                  src="https://placehold.co/300x300/?text=portrait,professional,4"
                   alt="Team Member"
                   className="w-full h-full object-cover"
                 />

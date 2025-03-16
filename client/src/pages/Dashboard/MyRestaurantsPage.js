@@ -131,7 +131,7 @@ const MyRestaurantsPage = () => {
                   <img
                     src={
                       restaurant.featuredImage ||
-                      "https://source.unsplash.com/random/300x200/?restaurant,food"
+                      "https://placehold.co/300x200?text=restaurant,food"
                     }
                     alt={restaurant.name}
                     className="w-full h-full object-cover"

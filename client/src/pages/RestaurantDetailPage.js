@@ -121,7 +121,7 @@ const RestaurantDetailPage = () => {
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${
             restaurant.featuredImage ||
-            "https://source.unsplash.com/random/1200x400/?restaurant"
+            "https://placehold.co/1200x400/?text=restaurant"
           })`,
           backgroundSize: "cover",
           backgroundPosition: "center",
