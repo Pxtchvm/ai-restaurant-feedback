@@ -47,6 +47,41 @@ const users = [
     password: "password123",
     role: "user",
   },
+  {
+    firstName: "Jose",
+    lastName: "Rizal",
+    email: "joserizal@example.com",
+    password: "password123",
+    role: "user",
+  },
+  {
+    firstName: "Maria",
+    lastName: "Santos",
+    email: "maria@example.com",
+    password: "password123",
+    role: "user",
+  },
+  {
+    firstName: "Juan",
+    lastName: "Dela Cruz",
+    email: "juan@example.com",
+    password: "password123",
+    role: "user",
+  },
+  {
+    firstName: "Ana",
+    lastName: "Reyes",
+    email: "ana@example.com",
+    password: "password123",
+    role: "user",
+  },
+  {
+    firstName: "Carlos",
+    lastName: "Garcia",
+    email: "carlos@example.com",
+    password: "password123",
+    role: "user",
+  },
 ];
 
 const restaurants = [
@@ -84,11 +119,11 @@ const restaurants = [
       sunday: { open: "10:00", close: "22:00" },
     },
     featuredImage:
-      "https://source.unsplash.com/random/800x400/?filipino,restaurant",
+      "https://placehold.co/800x400?text=filipino_restaurant",
     photos: [
-      "https://source.unsplash.com/random/800x600/?filipino,food,1",
-      "https://source.unsplash.com/random/800x600/?filipino,food,2",
-      "https://source.unsplash.com/random/800x600/?restaurant,interior",
+      "https://placehold.co/800x600?text=filipino_food_1",
+      "https://placehold.co/800x600?text=filipino_food_2",
+      "https://placehold.co/800x600?text=restaurant_interior",
     ],
     features: {
       hasDelivery: true,
@@ -133,11 +168,11 @@ const restaurants = [
       sunday: { open: "09:00", close: "21:00" },
     },
     featuredImage:
-      "https://source.unsplash.com/random/800x400/?chinese,restaurant",
+      "https://placehold.co/800x400?text=chinese_restaurant",
     photos: [
-      "https://source.unsplash.com/random/800x600/?chinese,food,1",
-      "https://source.unsplash.com/random/800x600/?chinese,food,2",
-      "https://source.unsplash.com/random/800x600/?dim,sum",
+      "https://placehold.co/800x600?text=chinese_food_1",
+      "https://placehold.co/800x600?text=chinese_food_2",
+      "https://placehold.co/800x600?text=dimsum",
     ],
     features: {
       hasDelivery: true,
@@ -183,11 +218,11 @@ const restaurants = [
       sunday: { open: "12:00", close: "22:00" },
     },
     featuredImage:
-      "https://source.unsplash.com/random/800x400/?italian,restaurant",
+      "https://placehold.co/800x400?text=italian_restaurant",
     photos: [
-      "https://source.unsplash.com/random/800x600/?italian,food,1",
-      "https://source.unsplash.com/random/800x600/?pasta",
-      "https://source.unsplash.com/random/800x600/?pizza",
+      "https://placehold.co/800x600?text=italian_food_1",
+      "https://placehold.co/800x600?text=pasta",
+      "https://placehold.co/800x600?text=pizza",
     ],
     features: {
       hasDelivery: true,
@@ -215,6 +250,14 @@ const reviewTemplates = [
     rating: 5,
     text: "One of the best dining experiences I've had. The chef is clearly passionate about the food, and it shows in every dish. The staff was attentive without being intrusive. Highly recommend!",
   },
+  {
+    rating: 5,
+    text: "Absolutely phenomenal! The adobo was tender, the sinigang perfectly tangy, and the desserts had just the right sweetness. A true taste of home!",
+  },
+  {
+    rating: 5,
+    text: "I couldn't stop smiling after this meal. Every dish burst with flavor and the traditional Filipino touches made it extra special. A must-try for any food lover!",
+  },
 
   // Mixed reviews
   {
@@ -225,6 +268,10 @@ const reviewTemplates = [
     rating: 3,
     text: "Average experience overall. The food was good but not outstanding. Service was inconsistent - some staff were great, others seemed disinterested. Probably won't rush back but wouldn't rule out a return visit.",
   },
+  {
+    rating: 3,
+    text: "The meal was acceptable, yet it felt like it was missing a spark. The flavors were somewhat diluted and the presentation could have been more refined. A middle-of-the-road experience.",
+  },
 
   // Negative reviews
   {
@@ -234,6 +281,14 @@ const reviewTemplates = [
   {
     rating: 1,
     text: "Terrible experience from start to finish. We waited 45 minutes for a table despite having a reservation. The food was bland and overpriced. The staff was rude and inattentive. Will not be returning.",
+  },
+  {
+    rating: 1,
+    text: "I was really looking forward to authentic Filipino cuisine, but this was a letdown. The dishes were poorly executed, and the balance of flavors was completely off.",
+  },
+  {
+    rating: 2,
+    text: "The atmosphere was inviting, but the food missed the mark. My favorite dish arrived lukewarm and tasted generic. The overall experience was underwhelming.",
   },
 ];
 
