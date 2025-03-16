@@ -22,6 +22,9 @@ import DashboardHomePage from "./pages/Dashboard/DashboardHomePage";
 import MyReviewsPage from "./pages/Dashboard/MyReviewsPage";
 import MyRestaurantsPage from "./pages/Dashboard/MyRestaurantsPage";
 import ProfileSettingsPage from "./pages/Dashboard/ProfileSettingsPage";
+import AddRestaurantPage from "./pages/Dashboard/AddRestaurantPage";
+import EditRestaurantPage from "./pages/Dashboard/EditRestaurantPage";
+import RestaurantAnalyticsPage from "./pages/Dashboard/RestaurantAnalyticsPage";
 
 // Guards
 import PrivateRoute from "./components/auth/PrivateRoute";
@@ -70,6 +73,30 @@ function App() {
           element={
             <RoleRoute roles={["restaurant-owner", "admin"]}>
               <MyRestaurantsPage />
+            </RoleRoute>
+          }
+        />
+        <Route
+          path="add-restaurant"
+          element={
+            <RoleRoute roles={["restaurant-owner", "admin"]}>
+              <AddRestaurantPage />
+            </RoleRoute>
+          }
+        />
+        <Route
+          path="edit-restaurant/:id"
+          element={
+            <RoleRoute roles={["restaurant-owner", "admin"]}>
+              <EditRestaurantPage />
+            </RoleRoute>
+          }
+        />
+        <Route
+          path="restaurant/:id/analytics"
+          element={
+            <RoleRoute roles={["restaurant-owner", "admin"]}>
+              <RestaurantAnalyticsPage />
             </RoleRoute>
           }
         />
