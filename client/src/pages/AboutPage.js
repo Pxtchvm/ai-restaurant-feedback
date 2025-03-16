@@ -205,7 +205,7 @@ const AboutPage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-64 bg-gray-200">
                 <img
-                  src="https://placehold.co/300x300/?text=portrait,professional,1"
+                  src="https://i.imgur.com/FtcMXkb.png"
                   alt="Team Member"
                   className="w-full h-full object-cover"
                 />
@@ -221,7 +221,7 @@ const AboutPage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-64 bg-gray-200">
                 <img
-                  src="https://placehold.co/300x300/?text=portrait,professional,2"
+                  src="https://i.imgur.com/sM1KMvs.png"
                   alt="Team Member"
                   className="w-full h-full object-cover"
                 />
@@ -239,7 +239,7 @@ const AboutPage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-64 bg-gray-200">
                 <img
-                  src="https://placehold.co/300x300/?text=portrait,professional,3"
+                  src="https://i.imgur.com/26wp2Fm.png"
                   alt="Team Member"
                   className="w-full h-full object-cover"
                 />
@@ -255,7 +255,7 @@ const AboutPage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-64 bg-gray-200">
                 <img
-                  src="https://placehold.co/300x300/?text=portrait,professional,4"
+                  src="https://i.imgur.com/Fwe6a7J.png"
                   alt="Team Member"
                   className="w-full h-full object-cover"
                 />
@@ -269,7 +269,7 @@ const AboutPage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-64 bg-gray-200">
                 <img
-                  src="https://placehold.co/300x300/?text=portrait,professional,5"
+                  src="https://i.imgur.com/KdNlesM.png"
                   alt="Team Member"
                   className="w-full h-full object-cover"
                 />
@@ -287,7 +287,7 @@ const AboutPage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-64 bg-gray-200">
                 <img
-                  src="https://placehold.co/300x300/?text=portrait,professional,6"
+                  src="https://i.imgur.com/nldgHl2.png"
                   alt="Team Member"
                   className="w-full h-full object-cover"
                 />
