@@ -353,7 +353,6 @@ const RestaurantInfo = ({ restaurant }) => {
               )}
           </div>
         </div>
-
         {/* Business Hours */}
         {restaurant.businessHours &&
           Object.values(restaurant.businessHours).some(
@@ -407,22 +406,26 @@ const RestaurantInfo = ({ restaurant }) => {
               </div>
             </div>
           )}
-
         {/* Map */}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold mb-4">Location</h2>
-          <div className="h-64 bg-gray-200 rounded-lg overflow-hidden">
-            <iframe
-              title={`Map of ${restaurant.name}`}
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              style={{ border: 0 }}
-              src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&q=${encodeURIComponent(
-                `${restaurant.location.address}, ${restaurant.location.city}, ${restaurant.location.country}`
-              )}`}
-              allowFullScreen
-            ></iframe>
+          <div className="h-64 bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
+            <div className="text-center p-4">
+              <p className="text-gray-600 mb-2">
+                {restaurant.location.address}, {restaurant.location.city},{" "}
+                {restaurant.location.country}
+              </p>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                  `${restaurant.location.address}, ${restaurant.location.city}, ${restaurant.location.country}`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-block px-4 py-2 mt-2"
+              >
+                View on Google Maps
+              </a>
+            </div>
           </div>
         </div>
       </div>
