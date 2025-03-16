@@ -5,7 +5,7 @@ const AboutPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-primary-600 text-white py-16">
+      <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold mb-4">About crAIvings</h1>
@@ -129,81 +129,65 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-16">
+      {/* How It Works - Redesigned with cards */}
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-12 text-center">How It Works</h2>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute top-0 left-8 md:left-1/2 w-1 h-full bg-primary-100 transform -translate-x-1/2"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {/* Step 1 */}
+            <div className="bg-white rounded-lg shadow-md p-6 border-t-4 border-primary-500 relative">
+              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-xl">
+                1
+              </div>
+              <div className="mt-6 text-center">
+                <h3 className="text-xl font-semibold mb-3">Discover</h3>
+                <p className="text-gray-600">
+                  Browse restaurants by location, cuisine, price range, or
+                  rating to find your next dining destination.
+                </p>
+              </div>
+            </div>
 
-              {/* Steps */}
-              <div className="space-y-12">
-                <div className="relative flex flex-col md:flex-row">
-                  <div className="md:w-1/2 md:pr-8 mb-4 md:mb-0">
-                    <div className="md:text-right">
-                      <h3 className="text-xl font-semibold mb-2">Discover</h3>
-                      <p className="text-gray-600">
-                        Browse restaurants by location, cuisine, price range, or
-                        rating to find your next dining destination.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="absolute top-0 left-8 md:left-1/2 w-16 h-16 bg-primary-600 rounded-full transform -translate-x-1/2 flex items-center justify-center text-white font-bold text-xl">
-                    1
-                  </div>
-                  <div className="md:w-1/2 md:pl-8"></div>
-                </div>
+            {/* Step 2 */}
+            <div className="bg-white rounded-lg shadow-md p-6 border-t-4 border-primary-500 relative">
+              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-xl">
+                2
+              </div>
+              <div className="mt-6 text-center">
+                <h3 className="text-xl font-semibold mb-3">Analyze</h3>
+                <p className="text-gray-600">
+                  Review detailed AI-powered insights about food quality,
+                  service, ambiance, and value before making your choice.
+                </p>
+              </div>
+            </div>
 
-                <div className="relative flex flex-col md:flex-row">
-                  <div className="md:w-1/2 md:pr-8 mb-4 md:mb-0 md:order-2">
-                    <div className="md:text-left">
-                      <h3 className="text-xl font-semibold mb-2">Analyze</h3>
-                      <p className="text-gray-600">
-                        Review detailed AI-powered insights about food quality,
-                        service, ambiance, and value before making your choice.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="absolute top-0 left-8 md:left-1/2 w-16 h-16 bg-primary-600 rounded-full transform -translate-x-1/2 flex items-center justify-center text-white font-bold text-xl">
-                    2
-                  </div>
-                  <div className="md:w-1/2 md:pl-8 md:order-1"></div>
-                </div>
+            {/* Step 3 */}
+            <div className="bg-white rounded-lg shadow-md p-6 border-t-4 border-primary-500 relative">
+              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-xl">
+                3
+              </div>
+              <div className="mt-6 text-center">
+                <h3 className="text-xl font-semibold mb-3">Dine</h3>
+                <p className="text-gray-600">
+                  Enjoy your meal with confidence, knowing what to expect based
+                  on real customer experiences.
+                </p>
+              </div>
+            </div>
 
-                <div className="relative flex flex-col md:flex-row">
-                  <div className="md:w-1/2 md:pr-8 mb-4 md:mb-0">
-                    <div className="md:text-right">
-                      <h3 className="text-xl font-semibold mb-2">Dine</h3>
-                      <p className="text-gray-600">
-                        Enjoy your meal with confidence, knowing what to expect
-                        based on real customer experiences.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="absolute top-0 left-8 md:left-1/2 w-16 h-16 bg-primary-600 rounded-full transform -translate-x-1/2 flex items-center justify-center text-white font-bold text-xl">
-                    3
-                  </div>
-                  <div className="md:w-1/2 md:pl-8"></div>
-                </div>
-
-                <div className="relative flex flex-col md:flex-row">
-                  <div className="md:w-1/2 md:pr-8 mb-4 md:mb-0 md:order-2">
-                    <div className="md:text-left">
-                      <h3 className="text-xl font-semibold mb-2">Share</h3>
-                      <p className="text-gray-600">
-                        After your meal, contribute to the community by sharing
-                        your own experience with a detailed review.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="absolute top-0 left-8 md:left-1/2 w-16 h-16 bg-primary-600 rounded-full transform -translate-x-1/2 flex items-center justify-center text-white font-bold text-xl">
-                    4
-                  </div>
-                  <div className="md:w-1/2 md:pl-8 md:order-1"></div>
-                </div>
+            {/* Step 4 */}
+            <div className="bg-white rounded-lg shadow-md p-6 border-t-4 border-primary-500 relative">
+              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold text-xl">
+                4
+              </div>
+              <div className="mt-6 text-center">
+                <h3 className="text-xl font-semibold mb-3">Share</h3>
+                <p className="text-gray-600">
+                  After your meal, contribute to the community by sharing your
+                  own experience with a detailed review.
+                </p>
               </div>
             </div>
           </div>
@@ -217,9 +201,9 @@ const AboutPage = () => {
             Meet Our Team
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-56 bg-gray-200">
+              <div className="h-64 bg-gray-200">
                 <img
                   src="https://placehold.co/300x300/?text=portrait,professional,1"
                   alt="Team Member"
@@ -227,13 +211,15 @@ const AboutPage = () => {
                 />
               </div>
               <div className="p-4 text-center">
-                <h3 className="text-lg font-semibold">Maria Santos</h3>
-                <p className="text-primary-600">Founder & CEO</p>
+                <h3 className="text-lg font-semibold">
+                  Antonio, Jullian Klein B.
+                </h3>
+                <p className="text-primary-600">Dashboard and Reporting</p>
               </div>
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-56 bg-gray-200">
+              <div className="h-64 bg-gray-200">
                 <img
                   src="https://placehold.co/300x300/?text=portrait,professional,2"
                   alt="Team Member"
@@ -241,13 +227,17 @@ const AboutPage = () => {
                 />
               </div>
               <div className="p-4 text-center">
-                <h3 className="text-lg font-semibold">David Kim</h3>
-                <p className="text-primary-600">CTO</p>
+                <h3 className="text-lg font-semibold">
+                  Chua, Aaron Michaeli B.
+                </h3>
+                <p className="text-primary-600">
+                  System Setup and Authentication
+                </p>
               </div>
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-56 bg-gray-200">
+              <div className="h-64 bg-gray-200">
                 <img
                   src="https://placehold.co/300x300/?text=portrait,professional,3"
                   alt="Team Member"
@@ -255,13 +245,15 @@ const AboutPage = () => {
                 />
               </div>
               <div className="p-4 text-center">
-                <h3 className="text-lg font-semibold">Sarah Johnson</h3>
-                <p className="text-primary-600">Head of AI</p>
+                <h3 className="text-lg font-semibold">
+                  Chua, Shekinah Shammah Yuriel L.
+                </h3>
+                <p className="text-primary-600">Sentiment Analysis</p>
               </div>
             </div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-56 bg-gray-200">
+              <div className="h-64 bg-gray-200">
                 <img
                   src="https://placehold.co/300x300/?text=portrait,professional,4"
                   alt="Team Member"
@@ -269,8 +261,42 @@ const AboutPage = () => {
                 />
               </div>
               <div className="p-4 text-center">
-                <h3 className="text-lg font-semibold">Miguel Reyes</h3>
-                <p className="text-primary-600">Lead Developer</p>
+                <h3 className="text-lg font-semibold">Duldulao, Jacob O.</h3>
+                <p className="text-primary-600">FullStack Development and QA</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="h-64 bg-gray-200">
+                <img
+                  src="https://placehold.co/300x300/?text=portrait,professional,5"
+                  alt="Team Member"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4 text-center">
+                <h3 className="text-lg font-semibold">
+                  Espeno, John Vincent E.
+                </h3>
+                <p className="text-primary-600">
+                  Review Aggregation and Storage
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="h-64 bg-gray-200">
+                <img
+                  src="https://placehold.co/300x300/?text=portrait,professional,6"
+                  alt="Team Member"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4 text-center">
+                <h3 className="text-lg font-semibold">Ong, Anton R.</h3>
+                <p className="text-primary-600">
+                  Notification and Alert System
+                </p>
               </div>
             </div>
           </div>

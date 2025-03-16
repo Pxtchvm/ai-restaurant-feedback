@@ -11,6 +11,9 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import RestaurantsPage from "./pages/RestaurantsPage";
 import RestaurantDetailPage from "./pages/RestaurantDetailPage";
+import AllReviewsPage from "./pages/AllReviewsPage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 // Auth pages
@@ -50,6 +53,9 @@ function App() {
         <Route path="about" element={<AboutPage />} />
         <Route path="restaurants" element={<RestaurantsPage />} />
         <Route path="restaurants/:id" element={<RestaurantDetailPage />} />
+        <Route path="reviews" element={<AllReviewsPage />} />
+        <Route path="terms" element={<TermsPage />} />
+        <Route path="privacy" element={<PrivacyPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
       </Route>

@@ -280,7 +280,7 @@ const RestaurantsPage = () => {
                         <img
                           src={
                             restaurant.featuredImage ||
-                            "https://placehold.co/300x200/?text=restaurant,food"
+                            "https://placehold.co/300x200/?text=restaurant_food"
                           }
                           alt={restaurant.name}
                           className="w-full h-full object-cover"

@@ -118,12 +118,11 @@ const restaurants = [
       saturday: { open: "10:00", close: "23:00" },
       sunday: { open: "10:00", close: "22:00" },
     },
-    featuredImage:
-      "https://placehold.co/800x400?text=filipino_restaurant",
+    featuredImage: "https://i.imgur.com/EhNcCL2.png",
     photos: [
-      "https://placehold.co/800x600?text=filipino_food_1",
-      "https://placehold.co/800x600?text=filipino_food_2",
-      "https://placehold.co/800x600?text=restaurant_interior",
+      "https://i.imgur.com/sUehjaK.png",
+      "https://i.imgur.com/MkgOfBI.png",
+      "https://i.imgur.com/c0dx6V2.png",
     ],
     features: {
       hasDelivery: true,
@@ -167,12 +166,11 @@ const restaurants = [
       saturday: { open: "09:00", close: "22:00" },
       sunday: { open: "09:00", close: "21:00" },
     },
-    featuredImage:
-      "https://placehold.co/800x400?text=chinese_restaurant",
+    featuredImage: "https://i.imgur.com/6Phas1V.png",
     photos: [
-      "https://placehold.co/800x600?text=chinese_food_1",
-      "https://placehold.co/800x600?text=chinese_food_2",
-      "https://placehold.co/800x600?text=dimsum",
+      "https://i.imgur.com/4OdyqYI.png",
+      "https://i.imgur.com/o7FnQTI.png",
+      "https://i.imgur.com/UM0SLgq.png",
     ],
     features: {
       hasDelivery: true,
@@ -217,12 +215,11 @@ const restaurants = [
       saturday: { open: "12:00", close: "23:00" },
       sunday: { open: "12:00", close: "22:00" },
     },
-    featuredImage:
-      "https://placehold.co/800x400?text=italian_restaurant",
+    featuredImage: "https://i.imgur.com/vPDRmU0.png",
     photos: [
-      "https://placehold.co/800x600?text=italian_food_1",
-      "https://placehold.co/800x600?text=pasta",
-      "https://placehold.co/800x600?text=pizza",
+      "https://i.imgur.com/qCs8JCG.png",
+      "https://i.imgur.com/zYoWEpJ.png",
+      "https://i.imgur.com/kxCNoLI.png",
     ],
     features: {
       hasDelivery: true,

@@ -83,7 +83,7 @@ const HomePage = () => {
             </div>
             <div className="md:w-1/2 flex justify-center">
               <img
-                src="https://placehold.co/600x400?text=restaurant_dining"
+                src="https://i.imgur.com/qUw42dC.png"
                 alt="Restaurant dining experience"
                 className="rounded-lg shadow-xl max-w-full h-auto"
               />
@@ -206,7 +206,7 @@ const HomePage = () => {
                     <img
                       src={
                         restaurant.featuredImage ||
-                        "https://placehold.co/300x200/?text=restaurant,food"
+                        "https://placehold.co/300x200/?text=restaurant_food"
                       }
                       alt={restaurant.name}
                       className="w-full h-full object-cover"
