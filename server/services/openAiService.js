@@ -29,9 +29,22 @@ class OpenAiService {
           content: `You are a sentiment analysis expert for restaurant reviews. 
             Analyze the following review and provide a structured response with:
             1. Overall sentiment score (from -1 to 1 where -1 is very negative, 0 is neutral, 1 is very positive)
-            2. Category-specific sentiment for: food, service, ambiance, and value (same -1 to 1 scale)
+            2. Category-specific sentiment for these four categories (same -1 to 1 scale):
+               - Food: Quality, taste, presentation, and menu options
+               - Service: Staff friendliness, speed, attentiveness, professionalism
+               - Ambiance: Atmosphere, decor, noise level, comfort, cleanliness
+               - Value: Price-to-quality ratio, portion sizes, whether the experience was worth the money
             3. Key sentiment phrases with their sentiment (positive or negative)
             4. Top keywords mentioned in the review
+            
+            For the value category specifically, look for mentions of:
+            - Price, cost, expensive, cheap, affordable, overpriced, reasonable
+            - Worth it, value for money, bang for buck
+            - Portion size relative to price
+            - Statements about whether the experience justified the cost
+            
+            Even if value isn't explicitly mentioned, infer the value sentiment when possible from context, especially when price is mentioned alongside quality assessments.
+            
             Return your analysis as valid JSON with the following structure:
             {
               "overall": number,
@@ -76,11 +89,22 @@ class OpenAiService {
         throw new Error("Failed to parse OpenAI response");
       }
 
-      // Parse the JSON and return
-      const analysisResult = JSON.parse(jsonMatch[0]);
+      try {
+        // Parse the JSON and return
+        const analysisResult = JSON.parse(jsonMatch[0]);
 
-      // Ensure we have a valid structure
-      return this.validateAndFormatResult(analysisResult);
+        // Log category values for debugging
+        console.log(
+          "OpenAI sentiment categories:",
+          JSON.stringify(analysisResult.categories)
+        );
+
+        // Ensure we have a valid structure
+        return this.validateAndFormatResult(analysisResult);
+      } catch (parseError) {
+        console.error("Error parsing OpenAI JSON response:", parseError);
+        throw new Error("Failed to parse OpenAI JSON response");
+      }
     } catch (error) {
       console.error("OpenAI sentiment analysis failed:", error.message);
       // We'll return null so the calling code can fall back to the basic analyzer
