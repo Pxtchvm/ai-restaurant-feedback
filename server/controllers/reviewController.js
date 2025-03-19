@@ -112,6 +112,9 @@ const getReviewById = asyncHandler(async (req, res) => {
   });
 });
 
+// Update to the createReview function in server/controllers/reviewController.js
+// Replace the existing createReview function with this updated version:
+
 /**
  * @desc    Create a new review
  * @route   POST /api/reviews
@@ -154,8 +157,8 @@ const createReview = asyncHandler(async (req, res) => {
     reviewDate: Date.now(),
   };
 
-  // Perform sentiment analysis
-  const sentimentResults = analyzeSentiment(text);
+  // Perform sentiment analysis - THIS IS THE UPDATED PART - now async
+  const sentimentResults = await analyzeSentiment(text);
   reviewData.sentiment = sentimentResults;
 
   // Create review
@@ -175,6 +178,8 @@ const createReview = asyncHandler(async (req, res) => {
     data: populatedReview,
   });
 });
+
+// Also update the updateReview function:
 
 /**
  * @desc    Update a review
@@ -203,8 +208,8 @@ const updateReview = asyncHandler(async (req, res) => {
   if (rating) updateData.rating = rating;
   if (text) {
     updateData.text = text;
-    // Re-analyze sentiment if text changes
-    updateData.sentiment = analyzeSentiment(text);
+    // Re-analyze sentiment if text changes - THIS IS THE UPDATED PART - now async
+    updateData.sentiment = await analyzeSentiment(text);
   }
   if (visibility && ["public", "private"].includes(visibility)) {
     updateData.visibility = visibility;

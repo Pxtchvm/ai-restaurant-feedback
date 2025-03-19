@@ -1,6 +1,8 @@
+// server/services/sentimentService.js
 const natural = require("natural");
+const openAiService = require("./openAiService");
 
-// Initialize NLP tools
+// Initialize NLP tools for the basic analyzer
 const tokenizer = new natural.WordTokenizer();
 const stemmer = natural.PorterStemmer;
 const sentiment = new natural.SentimentAnalyzer("English", stemmer, "afinn");
@@ -235,48 +237,31 @@ const categoryKeywords = {
 };
 
 /**
- * Analyze sentiment from review text
+ * Main function to analyze sentiment from review text
+ * Attempts to use OpenAI first, falls back to basic analysis if needed
+ *
  * @param {string} text - The review text to analyze
  * @returns {Object} Sentiment analysis results
  */
-const analyzeSentiment = (text) => {
+const analyzeSentiment = async (text) => {
   try {
-    // Normalize and tokenize text
-    const normalizedText = text.toLowerCase().replace(/[^\w\s]/g, " ");
-    const tokens = tokenizer.tokenize(normalizedText);
-    const filteredTokens = tokens.filter(
-      (token) => !stopwords.includes(token) && token.length > 2
-    );
+    // First try OpenAI analysis if enabled and API key is set
+    if (process.env.USE_OPENAI === "true") {
+      const openAiResult = await openAiService.analyzeSentiment(text);
 
-    // Calculate overall sentiment score [-1 to 1]
-    const overallScore = sentiment.getSentiment(tokens);
+      // If OpenAI analysis succeeded, return it
+      if (openAiResult) {
+        console.log("Using OpenAI sentiment analysis result");
+        return openAiResult;
+      }
+    }
 
-    // Split text into sentences for more granular analysis
-    const sentences = splitIntoSentences(text);
-
-    // Analyze sentiment by category
-    const categoryScores = analyzeCategorySentiment(sentences, tokens);
-
-    // Extract keywords
-    const keywords = extractKeywords(filteredTokens, tokens, sentences);
-
-    // Extract sentiment phrases
-    const sentimentPhrases = extractSentimentPhrases(sentences);
-
-    // Determine sentiment intensity
-    const intensity = calculateIntensity(overallScore, text);
-
-    return {
-      overall: parseFloat(overallScore.toFixed(2)),
-      intensity,
-      categories: categoryScores,
-      keywords,
-      sentimentPhrases,
-    };
+    // Fall back to basic analysis if OpenAI is not enabled or failed
+    console.log("Falling back to basic sentiment analysis");
+    return basicSentimentAnalysis(text);
   } catch (error) {
     console.error("Error analyzing sentiment:", error);
-
-    // Return default values if analysis fails
+    // Return default values if all analysis fails
     return {
       overall: 0,
       intensity: "neutral",
@@ -290,6 +275,46 @@ const analyzeSentiment = (text) => {
       sentimentPhrases: [],
     };
   }
+};
+
+/**
+ * Basic sentiment analysis using natural.js library
+ * @param {string} text - The review text to analyze
+ * @returns {Object} Sentiment analysis results
+ */
+const basicSentimentAnalysis = (text) => {
+  // Normalize and tokenize text
+  const normalizedText = text.toLowerCase().replace(/[^\w\s]/g, " ");
+  const tokens = tokenizer.tokenize(normalizedText);
+  const filteredTokens = tokens.filter(
+    (token) => !stopwords.includes(token) && token.length > 2
+  );
+
+  // Calculate overall sentiment score [-1 to 1]
+  const overallScore = sentiment.getSentiment(tokens);
+
+  // Split text into sentences for more granular analysis
+  const sentences = splitIntoSentences(text);
+
+  // Analyze sentiment by category
+  const categoryScores = analyzeCategorySentiment(sentences, tokens);
+
+  // Extract keywords
+  const keywords = extractKeywords(filteredTokens, tokens, sentences);
+
+  // Extract sentiment phrases
+  const sentimentPhrases = extractSentimentPhrases(sentences);
+
+  // Determine sentiment intensity
+  const intensity = calculateIntensity(overallScore, text);
+
+  return {
+    overall: parseFloat(overallScore.toFixed(2)),
+    intensity,
+    categories: categoryScores,
+    keywords,
+    sentimentPhrases,
+  };
 };
 
 /**
