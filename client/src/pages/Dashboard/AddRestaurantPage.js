@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import api from "../../utils/api";
 
@@ -33,12 +33,14 @@ const AddRestaurantPage = () => {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedCuisines, setSelectedCuisines] = useState([]);
+  const [cuisineError, setCuisineError] = useState("");
 
   // Form setup
   const {
     register,
     handleSubmit,
     control,
+    watch,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -73,6 +75,9 @@ const AddRestaurantPage = () => {
     },
   });
 
+  // Watch price range for controlled component
+  const watchPriceRange = watch("priceRange");
+
   // Handle cuisine selection
   const handleCuisineToggle = (cuisine) => {
     if (selectedCuisines.includes(cuisine)) {
@@ -80,23 +85,59 @@ const AddRestaurantPage = () => {
     } else {
       setSelectedCuisines([...selectedCuisines, cuisine]);
     }
+    // Clear error when user selects a cuisine
+    if (cuisineError && !selectedCuisines.includes(cuisine)) {
+      setCuisineError("");
+    }
   };
 
   // Handle form submission
   const onSubmit = async (data) => {
-    if (selectedCuisines.length === 0) {
-      toast.error("Please select at least one cuisine type");
-      return;
-    }
-
-    setIsSubmitting(true);
-
     try {
+      // Validate cuisines
+      if (selectedCuisines.length === 0) {
+        setCuisineError("Please select at least one cuisine type");
+        return;
+      }
+
+      setIsSubmitting(true);
+
+      // Default coordinates for Manila, Philippines if not provided
+      // In a real app, you would use a geocoding service to get coordinates from the address
+      const defaultCoordinates = [120.9842, 14.5995]; // [longitude, latitude] for Manila
+
       // Add cuisines to the data
       const restaurantData = {
         ...data,
         cuisine: selectedCuisines,
+        location: {
+          ...data.location,
+          coordinates: {
+            type: "Point",
+            coordinates: defaultCoordinates,
+          },
+        },
       };
+
+      // Format any missing business hours to be empty objects
+      if (data.businessHours) {
+        const formattedBusinessHours = {};
+        [
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday",
+          "sunday",
+        ].forEach((day) => {
+          formattedBusinessHours[day] = {
+            open: data.businessHours?.[day]?.open || "",
+            close: data.businessHours?.[day]?.close || "",
+          };
+        });
+        restaurantData.businessHours = formattedBusinessHours;
+      }
 
       // Send API request to create restaurant
       const response = await api.post("/restaurants", restaurantData);
@@ -105,10 +146,17 @@ const AddRestaurantPage = () => {
       navigate(`/dashboard/my-restaurants`);
     } catch (error) {
       console.error("Error creating restaurant:", error);
-      toast.error(
-        error.response?.data?.message ||
-          "Failed to create restaurant. Please try again."
-      );
+
+      // Better error handling
+      if (error.response?.data?.message) {
+        toast.error(error.response.data.message);
+      } else if (error.response?.data?.errors) {
+        // Handle validation errors
+        const validationErrors = error.response.data.errors;
+        validationErrors.forEach((err) => toast.error(err.msg));
+      } else {
+        toast.error("Failed to create restaurant. Please try again.");
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -202,10 +250,8 @@ const AddRestaurantPage = () => {
                   </div>
                 ))}
               </div>
-              {selectedCuisines.length === 0 && (
-                <p className="mt-1 text-sm text-red-600">
-                  Please select at least one cuisine type
-                </p>
+              {cuisineError && (
+                <p className="mt-1 text-sm text-red-600">{cuisineError}</p>
               )}
             </div>
 
@@ -218,7 +264,7 @@ const AddRestaurantPage = () => {
                   <label
                     key={price}
                     className={`flex items-center justify-center px-4 py-2 border rounded-md cursor-pointer ${
-                      control._formValues.priceRange === price
+                      watchPriceRange === price
                         ? "bg-primary-50 border-primary-500"
                         : "border-gray-300 hover:bg-gray-50"
                     }`}
